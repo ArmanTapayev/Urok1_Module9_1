@@ -118,6 +118,13 @@
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="01_hockey.h" />
+    <ClInclude Include="02_product.h" />
+    <ClInclude Include="04_employee.h" />
+    <ClInclude Include="03_product.h" />
+    <ClInclude Include="05_student.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

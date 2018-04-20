@@ -14,7 +14,6 @@ void main()
 	int n;
 	do
 	{
-
 		printf("¬ведите номер варианта: ");
 		scanf("%d", &n);
 		switch (n)

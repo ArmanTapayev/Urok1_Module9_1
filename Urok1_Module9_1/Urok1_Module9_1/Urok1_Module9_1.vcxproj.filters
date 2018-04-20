@@ -22,4 +22,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="01_hockey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="02_product.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="03_product.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="04_employee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="05_student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
