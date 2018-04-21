@@ -28,9 +28,9 @@ void main()
 			*/
 
 			int count = 6, sum = 0;
-			printf("--- Информация о команде ---\n");
+			printf("--- Информация о хоккейной команде ---\n");
 			hockeyPlayer *cmp = createTeam(&count);
-			printf("Хоккеисты, возраст которых меьше 25 лет:\n");
+			printf("Хоккеисты, возраст которых меньше 25 лет:\n");
 			for (int i = 0; i < count; i++)
 			{
 				sum += cmp[i].age;
@@ -96,7 +96,7 @@ void main()
 				}
 					
 			}
-			printf("Средний стоимость товаров: %0.2f\n", (float)sum / count);
+			printf("Средняя стоимость товаров: %0.2f\n", (float)sum / count);
 			printf("Товар с минимальной стоимостью:\n");
 			printInfoPrd2(&cmp[intMin], 1);
 			system("pause");
@@ -162,7 +162,7 @@ void main()
 			int count = 10, sum = 0,k=0;
 			printf(" --- Информация по студенту --- \n");
 			student *cmp = createStudent(&count); 
-			printf("Студенты, которые сдали математику на 95: \n");
+			printf("Студенты, оценка по математике которых выше 95 баллов: \n");
 			for (int i = 0; i < count; i++)
 			{
 				if (cmp[i].sub[1].rate > 95)
@@ -171,6 +171,8 @@ void main()
 					k++;
 				}
 			}
+			if (!k)
+				printf("Таких студентов нет.\n");
 			printf("Количество студентов: %d\n", k);
 	
 			system("pause");

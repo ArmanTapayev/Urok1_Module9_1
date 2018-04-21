@@ -180,7 +180,7 @@ void printInfoEmpl(employee *file, int len)
 	//printf(" --- Информация по работнику --- \n");
 	for (int i = 0; i < len; i++)
 	{
-		printf("#%d Фамилия: %s; Год рождения: %d.%d.%d; Должность: %s; Зарплата: %d; Образование: %s\n",
+		printf("#%d Фамилия: %s; Дата рождения: %d.%d.%d; Должность: %s; Зарплата: %d; Образование: %s\n",
 			i + 1,
 			file[i].lastName,
 			file[i].bdt.day,
@@ -241,10 +241,14 @@ void printInfoStd(student * students, int len)
 	//printf(" --- Информация по студенту --- \n");
 	for (int i = 0; i < len; i++)
 	{
-		printf("#%d. %s (%s)\n",
+		printf("#%d. Фамилия: %s, Группа %s, Дата рождения: %d.%d.%d\n",
 			i + 1,
 			students[i].name,
-			students[i].groupe);
+			students[i].groupe,
+		    students[i].bdt.day,
+			students[i].bdt.month,
+			students[i].bdt.year);
+
 		for (int j = 0; j < 3; j++)
 		{
 			printf("-->%s\t%d\n",
@@ -264,6 +268,7 @@ student * createStudent(int *count)
 		{
 			createName(st[i].name, 10);
 			createName(st[i].groupe, 3);
+			generateDate(&st[i].bdt);
 			for (int j = 0; j < 3; j++)
 			{
 				generateSubject(&st[i].sub[j], j);
