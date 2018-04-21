@@ -286,7 +286,7 @@ void printInfoPln(Plane * pln, int len)
 	//printf(" --- Информация по месту --- \n");
 	for (int i = 0; i < len; i++)
 	{
-		printf("#%d. Фамилия: %s, Имя: %s, Место: %d, Инфо: %d\n",
+		printf("#%d. Фамилия: %s, Имя: %s, Место: %d, Бронь: %d\n",
 			i + 1,
 			pln[i].psg.fName,
 			pln[i].psg.lName,
