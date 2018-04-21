@@ -279,3 +279,47 @@ student * createStudent(int *count)
 	}
 	return st;
 }
+
+/* variant 6 */	
+void printInfoPln(Plane * pln, int len)
+{
+	//printf(" --- Информация по месту --- \n");
+	for (int i = 0; i < len; i++)
+	{
+		printf("#%d. Фамилия: %s, Имя: %s, Место: %d, Инфо: %d\n",
+			i + 1,
+			pln[i].psg.fName,
+			pln[i].psg.lName,
+			pln[i].plc.place,
+			pln[i].plc.ocup);
+
+		//printf("\n");
+	}
+}
+
+Plane * createPlace(int *count)
+{
+	Plane *pl = (Plane*)calloc(*count, sizeof(Plane));
+	if (pl != NULL)
+	{
+		for (int i = 0; i < *count; i++)
+		{
+			createName(pl[i].psg.fName, 10);
+			createName(pl[i].psg.lName, 10);
+			pl[i].plc.place = i + 1;
+			pl[i].plc.ocup = 0+rand()%2;
+			if (pl[i].plc.ocup == 0)
+			{
+				strcpy(pl[i].psg.fName, "None");
+				strcpy(pl[i].psg.lName, "None");
+			}
+		}
+		//printInfoPln(pl, *count);
+	}
+	else
+	{
+		printf("Ошибка!");
+		exit(1);
+	}
+	return pl;
+}

@@ -8,7 +8,7 @@
 void main()
 {
 	srand(time(NULL));
-	setlocale(LC_ALL, "rus");
+	setlocale(LC_ALL, "Rus");
 	printf("Работа содержит 6 вариантов.\n");
 	printf("Для завершения наберите 0.\n");
 	int n;
@@ -175,6 +175,168 @@ void main()
 	
 			system("pause");
 			system("cls");
+		}break;
+
+		case 6:
+		{
+			char *firstName = (char*)malloc(10 * sizeof(char));
+			char *lastName = (char*)malloc(10 * sizeof(char));
+			int n;
+			int ind, plcInd;
+			int count = 12, sum = 0, k = 0, tempPr=1;
+			Plane * psg = createPlace(&count);
+			Plane *temp = createPlace(&tempPr);
+			//printInfoPln(psg, count);
+			printf("-------------------------------------------------------------------------\n");
+			printf("*** Информация о регистрации на рейс авиакомпании Colossus Airlines. ***\n");
+			printf("-------------------------------------------------------------------------\n");
+			do
+			{
+				printf("-------------------------------------------------------------------------\n");
+				printf("0. Список всех мест.\n");
+				printf("1. Количество свободных мест.\n");
+				printf("2. Список пустых свободных мест.\n");
+				printf("3. Алфавитный список занятых мест.\n");
+				printf("4. Назначить место.\n");
+				printf("5. Удалить назначенное место.\n");
+				printf("6. Выйти из программы.\n");
+				printf("-------------------------------------------------------------------------\n");
+				printf("Выберите пункт меню: ");
+				scanf("%d", &n);
+				switch (n)
+				{
+					case 0:
+					{   printf("-------------------------------------------------------------------------\n");
+						printf("Список всех пассажиров:\n");
+						printf("-------------------------------------------------------------------------\n");
+						printInfoPln(psg, count);
+						system("pause");
+						system("cls");
+					}break;
+
+					case 1:
+					{
+						for (int  i = 0; i < count; i++)
+						{
+							if (psg[i].plc.ocup==0)
+								k++;
+						}
+						printf("-------------------------------------------------------------------------\n");
+						printf("Количество свободных мест: %d\n", k);
+						printf("-------------------------------------------------------------------------\n");
+						system("pause");
+						system("cls");
+					}break;
+
+					case 2:
+					{
+						printf("-------------------------------------------------------------------------\n");
+						printf("Список свободных мест:\n", k);
+						printf("-------------------------------------------------------------------------\n");
+						for (int i = 0; i < count; i++)
+						{
+							if (psg[i].plc.ocup == 0)
+								printInfoPln(&psg[i], 1);
+						}
+						system("pause");
+						system("cls");
+					}break;
+
+					case 3:
+					{
+						printf("-------------------------------------------------------------------------\n");
+						printf("Алфавитный список занятых мест:\n", k);
+						printf("-------------------------------------------------------------------------\n");
+						for (int i = 0; i < count-1; i++)
+						{
+							for (int j = i+1; j < count; j++)
+							{
+								if (strcmp(psg[i].psg.fName, psg[j].psg.fName)>0)
+								{
+									*temp= psg[i];
+									psg[i]= psg[j];
+									psg[j]=*temp;
+								}
+							}
+						}
+						for (int i = 0; i < count; i++)
+						{
+							if (psg[i].plc.ocup == 1)
+								printInfoPln(&psg[i], 1);
+						}
+						//printInfoPln(psg, count);
+						system("pause");
+						system("cls");
+					}break;
+
+					case 4:
+					{
+						
+						//int ind, plcInd;
+						printf("Введите имя: ");
+						scanf("%s", firstName);
+						printf("Введите фамилию: ");
+						scanf("%s", lastName);
+						for (int i = 0; i < count; i++)
+						{
+							if (psg[i].plc.ocup == 0)
+							{
+								ind = i;
+								plcInd=psg[i].plc.place;
+								psg[i].plc.ocup = 1;
+								strcpy(psg[i].psg.fName, firstName);
+								strcpy(psg[i].psg.lName, lastName);
+								break;
+							}
+							
+						}
+						printf("-------------------------------------------------------------------------\n");
+						printf("%s %s, Вам назначено место №%d.\n",
+							firstName, lastName, plcInd);
+						printf("-------------------------------------------------------------------------\n");
+						printInfoPln(&psg[ind], 1);
+						/*printf("Список всех пассажиров:\n");
+						printInfoPln(psg, count);*/
+						system("pause");
+						system("cls");
+
+					}break;
+
+					case 5:
+					{	
+						//plcInd = psg[i].plc.place;
+						psg[ind].plc.ocup = 0;
+						strcpy(psg[ind].psg.fName, "None");
+						strcpy(psg[ind].psg.lName, "None");
+						printf("-------------------------------------------------------------------------\n");
+						printf("%s %s, Ваше бронь аннулирована.\n", firstName, lastName);
+						printf("-------------------------------------------------------------------------\n");
+						/*printf("Список всех пассажиров:\n");
+						printInfoPln(psg, count);*/
+						system("pause");
+						system("cls");
+					}break;
+
+					case 6:
+					{   printf("-------------------------------------------------------------------------\n");
+						printf("Всего доброго!\n");
+						printf("-------------------------------------------------------------------------\n");
+						n = 6;
+						system("pause");
+						system("cls");
+					}break;
+
+					default:
+						printf("Выберите пункт меню:\n");
+						system("pause");
+						system("cls");
+					break;
+				}
+
+			} while (n != 6);
+			
+		system("pause");
+		system("cls");
 		}break;
 		}
 	} while (n != 0);

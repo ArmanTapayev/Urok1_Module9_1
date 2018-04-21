@@ -125,6 +125,7 @@
     <ClInclude Include="04_employee.h" />
     <ClInclude Include="03_product.h" />
     <ClInclude Include="05_student.h" />
+    <ClInclude Include="06_airport.h" />
     <ClInclude Include="totalService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

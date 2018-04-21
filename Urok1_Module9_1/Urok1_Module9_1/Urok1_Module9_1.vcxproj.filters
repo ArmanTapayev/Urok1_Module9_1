@@ -41,5 +41,8 @@
     <ClInclude Include="totalService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="06_airport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
