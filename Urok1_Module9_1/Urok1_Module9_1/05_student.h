@@ -13,8 +13,8 @@ struct subject
 
 struct student
 {
-	char name[15];
-	char groupe[15];
+	char name[10];
+	char groupe[3];
 	subject sub[3];
 };
 

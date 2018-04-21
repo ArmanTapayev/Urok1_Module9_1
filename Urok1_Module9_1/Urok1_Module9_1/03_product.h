@@ -1,4 +1,4 @@
-struct createDate
+struct birthDate
 {
 	int day;
 	int month;
@@ -11,5 +11,5 @@ struct goods3
 	int quantity;
 	int price;
 	char maker[5];
-	createDate crtDate;
+	birthDate crtDate;
 };

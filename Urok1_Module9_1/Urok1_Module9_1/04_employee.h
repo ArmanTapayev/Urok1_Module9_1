@@ -5,12 +5,12 @@
 //Образование
 
 
-struct birthDate
-{
-	int day;
-	int month;
-	int year;
-};
+//struct birthDate
+//{
+//	int day;
+//	int month;
+//	int year;
+//};
 
 struct education
 {
